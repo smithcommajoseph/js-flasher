@@ -1,12 +1,11 @@
 # require 'js-flasher/engine'
 require 'js_flasher/version'
 require 'js_flasher/configuration'
-require 'js_flasher/railtie'
 
 module JsFlasher
     extend Configuration
 
-    # require 'js_flasher/railtie' if defined?(Rails)
+    require 'js_flasher/railtie' if defined?(Rails)
 
     def self.get_templates(subset = nil)
 

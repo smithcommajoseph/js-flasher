@@ -17,7 +17,7 @@ module JsFlasher
 
         DEFAULT_TARGET_DIRECTORY = 'app/assets/javascripts/templates'
 
-        JS_NAMESPACE = 'JSF'
+        DEFAULT_JS_NAMESPACE = 'JSF'
 
         # When this module is extended, set all configuration options to their default values
         def self.extended(base)
@@ -34,7 +34,7 @@ module JsFlasher
             self.template_sources       = DEFAULT_TEMPLATE_SOURCES
             self.supported_extensions   = DEFAULT_SUPPORTED_EXENSIONS
             self.target_directory       = DEFAULT_TARGET_DIRECTORY
-            self.js_namespace           = JS_NAMESPACE
+            self.js_namespace           = DEFAULT_JS_NAMESPACE
         end
 
     end
