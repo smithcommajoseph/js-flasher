@@ -1,7 +1,7 @@
 namespace :js_flasher do
     desc ""
     task :build_files => :environment do
-        templates_object    = JsFlasher::get_templates
+        templates_object    = JsFlasher::get_templates_ob
         target_directory    = JsFlasher::target_directory
         js_namespace        = JsFlasher::js_namespace
 
@@ -9,7 +9,7 @@ namespace :js_flasher do
             out = "var #{js_namespace} = #{js_namespace} || {}; "
 
             out << "#{js_namespace}.#{ob_name} = "
-            out << "<%= JsFlasher.get_templates[:#{ob_name}] %>;"
+            out << "<%= JsFlasher.get_templates([:#{ob_name}]) %>;"
 
             FileUtils.mkdir_p(target_directory)
 
