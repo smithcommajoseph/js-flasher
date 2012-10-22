@@ -34,11 +34,9 @@ js-flasher ships with some (hopefully) smart defaults. These are largely geared 
     :target_directory = 'app/assets/javascripts/templates'
     :js_namespace = 'JSF'
 
-## Usage:
+## Usage - Rails:
 
-#### Rails Usage
-
-##### Config
+#### Config
 
 The recommended process for modifying js-flasher configuration in Rails is
 
@@ -51,7 +49,7 @@ The recommended process for modifying js-flasher configuration in Rails is
 		end
 
 
-##### Create files
+#### Create files
 
 You can create files for your JS template objects by running `rake js_flasher:build_files`. This will create a file for each template source that you have passed in.
 
@@ -64,14 +62,14 @@ The contents of the generated `Templates.js.erb` would look something like the f
 In this case our namespace `JSF` is also generated from our default config and may be overridden
 
 
-##### Access your templates
+#### Access your templates
 
 Now you are free to use whatever templating language you want. You may access your glorified string, um, template like so
 
     JSF.Templates['path/to/my/template.tpl.html']
 
 
-##### Non Rails Usage
+## Usage - Non Rails:
 
 ...coming...
 
