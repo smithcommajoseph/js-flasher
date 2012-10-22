@@ -9,7 +9,7 @@ namespace :js_flasher do
             out = "var #{js_namespace} = #{js_namespace} || {}; "
 
             out << "#{js_namespace}.#{ob_name} = "
-            out << "<%= JsFlasher.get_templates[:#{ob_name}].to_json %>;"
+            out << "<%= JsFlasher.get_templates[:#{ob_name}] %>;"
 
             FileUtils.mkdir_p(target_directory)
 

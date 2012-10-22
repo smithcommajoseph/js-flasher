@@ -1,3 +1,5 @@
+require 'json'
+
 module JsFlasher
   module GetTemplates
 
