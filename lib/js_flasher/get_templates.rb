@@ -31,6 +31,10 @@ module JsFlasher
         end
       end
 
+      if subset.length === 1
+        templates_ob = templates_ob[subset[0].to_sym]
+      end
+
       return templates_ob
     end
 
@@ -40,4 +44,3 @@ module JsFlasher
 
   end
 end
-
