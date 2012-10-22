@@ -2,7 +2,7 @@ namespace :js_flasher do
     desc ""
     task :build_files => :environment do
         templates_object    = JsFlasher::get_templates
-        target_directory          = JsFlasher::target_directory
+        target_directory    = JsFlasher::target_directory
         js_namespace        = JsFlasher::js_namespace
 
         templates_object.each do |ob_name, templates|
