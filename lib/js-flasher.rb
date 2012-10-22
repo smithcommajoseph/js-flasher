@@ -1,28 +1,41 @@
 # require 'js-flasher/engine'
-require 'js-flasher/version'
-require 'js-flasher/configuration'
+require 'js_flasher/version'
+require 'js_flasher/configuration'
+require 'js_flasher/railtie'
 
 module JsFlasher
     extend Configuration
 
-    def self.get_templates
+    # require 'js_flasher/railtie' if defined?(Rails)
 
-        templates = {}
+    def self.get_templates(subset = nil)
 
-        self.template_dirs.each do |tpl_name, tpl_dir|
-            templates[tpl_name] = {}
+        subset ||= self.template_sources.keys
+        templates   = {}
 
-            Dir.chdir(tpl_dir) do 
-                outs = Dir.glob("**/*")
+        self.template_sources.each do |tpl_name, tpl_dir|
 
-                outs.each do |filename|
-                    if filename.include? self.template_suffix
-                        filecontents = File.open(filename, "rb") { |f| f.read }
-                        templates[tpl_name][filename] = filecontents.gsub(/([\n\t\r])/, '')
+            if subset && subset.include?(tpl_name)
+
+                templates[tpl_name] = {}
+
+                Dir.chdir(tpl_dir) do 
+                    outs = Dir.glob("**/*")
+
+                    outs.each do |filename|
+                        out_arr = filename.split('/').last.split('.')
+                        out_arr.shift
+                        extension = ".#{out_arr.join('.')}"
+
+                        if self.supported_extensions.include? extension
+                            filecontents = File.open(filename, "rb") { |f| f.read }
+                            templates[tpl_name][filename] = filecontents.gsub(/([\n\t\r])/, '')
+                        end
+
                     end
                 end
-            end
 
+            end
         end
 
         return templates
@@ -30,3 +43,4 @@ module JsFlasher
     end
 
 end
+
