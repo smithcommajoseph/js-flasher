@@ -8,7 +8,7 @@ module JsFlasher
   require 'js_flasher/railtie' if defined?(Rails)
 end
 
-class JsFlasherInstance
+class JsFlasherInitable
   # include JsFlasher
   include JsFlasher::Configuration
   include JsFlasher::GetTemplates

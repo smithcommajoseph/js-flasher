@@ -104,7 +104,7 @@ Now in your Javascript files you are free to use whatever templating system you 
 ## Usage - Non Rails 
 (or for those who prefer greater flexibility):
 
-`js-flasher` comes with an instantiatable class called `JsFlasherInstance`.
+`js-flasher` comes with an instantiatable class called `JsFlasherInitable`.
 
 #### Create + Config
 
