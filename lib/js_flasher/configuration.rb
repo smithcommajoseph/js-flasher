@@ -6,7 +6,8 @@ module JsFlasher
       :template_sources,
       :supported_extensions,
       :target_directory,
-      :js_namespace
+      :js_namespace,
+      :extensions_in_keys
     ]
 
     VALID_OPTIONS.each { |opt| attr_accessor opt }
