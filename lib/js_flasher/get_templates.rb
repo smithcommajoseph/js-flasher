@@ -18,6 +18,7 @@ module JsFlasher
 
             outs.each do |filename|
               out_arr = filename.split('/').last.split('.')
+              out_arr.shift
               extension = ".#{out_arr.join('.')}"
               filename_key = (self.extensions_in_keys) ? filename : filename.gsub(extension, '')
 

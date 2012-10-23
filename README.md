@@ -66,6 +66,12 @@ Parent Javascript object generated for namespacing
 
     :js_namespace = 'JSF'
 
+##### Extensions in Keys
+
+Shoud the resulting JS object include file extensions in it's keys?
+
+    :extensions_in_keys = false
+
 ## Usage - Rails:
 
 #### Config
@@ -98,8 +104,9 @@ In this case our namespace `JSF` is also generated from our default config and m
 
 Now in your Javascript files you are free to use whatever templating system you want. You may access your template like so.
 
-    JSF.Shared['path/to/my/template.tpl.html']
+    JSF.Shared['path/to/my/template']
 
+Paths are relative to your template set. In other words, in the above example your template would actually live in `app/assets/templates/path/to/my/template`.
 
 ## Usage - Non Rails 
 (or for those who prefer greater flexibility):
