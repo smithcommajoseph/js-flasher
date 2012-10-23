@@ -16,14 +16,13 @@ module JsFlasher
           Dir.chdir(tpl_dir) do 
             outs = Dir.glob("**/*")
 
-            outs.each do |file|
-              out_arr = file.split('/').last.split('.')
-              file_name = out_arr.shift
+            outs.each do |filename|
+              out_arr = filename.split('/').last.split('.')
               extension = ".#{out_arr.join('.')}"
-              filename_key = (self.extensions_in_keys) ? file : file_name
+              filename_key = (self.extensions_in_keys) ? filename : filename.gsub(extension, '')
 
               if self.supported_extensions.include? extension
-                filecontents = File.open(file, "rb") { |f| f.read }
+                filecontents = File.open(filename, "rb") { |f| f.read }
                 templates_ob[tpl_name][filename_key] = filecontents.gsub(/([\n\t\r])/, '')
               end
             end
